@@ -29,9 +29,17 @@
 
             <div class="mb-3 d-flex justify-content-between align-items-center">
                 <div><span id="catatanTersedia">0</span> Catatan Tersedia</div>
-                <button type="button" class="btn btn-primary rounded-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="bi bi-patch-plus-fill"></i> Tambahkan Catatan Baru
-                </button>
+                <div class="d-flex gap-2">
+                    <div class="col-auto">
+                        <div class="input-group">
+                            <div class="input-group-text" style="border-bottom-left-radius: 100px; border-top-left-radius: 100px;"><i class="bi bi-search"></i></div>
+                            <input id="searchCatatan"  type="text" class="form-control" style="border-bottom-right-radius: 100px; border-top-right-radius: 100px;"  placeholder="Cari catatan...">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary rounded-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <i class="bi bi-patch-plus-fill"></i> Tambahkan Catatan Baru
+                    </button>
+                </div>
             </div>
 
             <div id="listAktifitas">

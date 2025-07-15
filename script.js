@@ -62,7 +62,7 @@ function newElement(judul, author, catatan) {
 
     // new title in first element card
     const newTitleInFirstElementCard = document.createElement('h5');
-    newTitleInFirstElementCard.classList.add('card-title')
+    newTitleInFirstElementCard.classList.add('card-title', 'title_note')
     const newTextTitleInFirstElementCard = document.createTextNode(judul);
     newTitleInFirstElementCard.appendChild(newTextTitleInFirstElementCard);
 
@@ -148,3 +148,38 @@ function countListAktifitas() {
         alertCatatanTidakTersedia.classList.remove('d-none')
     }
 }
+
+
+
+
+document.getElementById('searchCatatan').addEventListener('keyup', function () {
+
+    const keyword = this.value.toLowerCase();
+    const cards    = document.querySelectorAll('.card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const titleElemenet = card.querySelector('.title_note');
+        const titleText     = titleElemenet.textContent.toLowerCase();
+        
+        if (titleText.includes(keyword)) {
+            card.style.display = '';
+            visibleCount++;
+        }
+        else{
+            card.style.display = 'none';
+        }
+    });
+
+
+    const catatanTersedia = document.getElementById('catatanTersedia').innerText = visibleCount;
+    const alertCatatanTidakTersedia = document.getElementById('alertCatatanTidakTersedia');
+
+    if (visibleCount > 0) {
+        alertCatatanTidakTersedia.classList.add('d-none');
+    }
+    else{
+        alertCatatanTidakTersedia.classList.remove('d-none');
+    }
+
+})
